@@ -1,0 +1,96 @@
+﻿@model IEnumerable<IGrouping<string, SushiWebsite.Models.Dish>>
+
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h1 class="text-center my-4">Menu</h1>
+
+<!-- Nút View Your Cart -->
+<button id="viewCartBtn" class="btn btn-success btn-sm mt-3 mb-5">View Your Cart!
+    @if (ViewBag.CartItemCount > 0)
+    {
+        <span class="badge bg-danger ms-2">@ViewBag.CartItemCount</span>
+    }
+</button>
+
+<!-- Modal để hiển thị giỏ hàng -->
+<div id="cartModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Giỏ Hàng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="cartContent">Đang tải...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach (var category in Model)
+{
+    <h3 class="category-title">@category.Key</h3>
+    <ul class="list-group mb-4">
+        @foreach (var dish in category)
+        {
+            <li class="list-group-item d-flex align-items-center">
+                <img src="@dish.ImageUrl" alt="@dish.Name" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">@dish.Name</h6>
+                    <small>@dish.Description</small>
+                </div>
+                <div>
+                    <p class="mb-0"><strong>@dish.Price.ToString("C")</strong></p>
+                    <form method="post" asp-action="AddToCart" class="mt-1">
+                        <input type="hidden" name="id" value="@dish.Id" />
+                        <button type="submit" class="btn btn-sm btn-primary">Thêm</button>
+                    </form>
+                </div>
+            </li>
+        }
+    </ul>
+}
+<a asp-action="CartView" class="btn btn-success btn-sm mt-3 mb-5">View Your Cart!</a>
+
+
+
+@section Scripts {
+    <script>
+        document.getElementById("viewCartBtn").addEventListener("click", function () {
+            fetch('/Menu/GetCartItems') // Gửi yêu cầu đến action GetCartItems
+                .then(response => response.json()) // Nhận kết quả JSON
+                .then(data => {
+                    let content = '';
+
+                    if (data.length === 0) {
+                        content = '<p>Giỏ hàng của bạn đang trống.</p>';
+                    } else {
+                        content += '<table class="table table-bordered">';
+                        content += '<thead><tr><th>Tên Món</th><th>Giá</th><th>Số Lượng</th><th>Tổng</th></tr></thead>';
+                        content += '<tbody>';
+
+                        data.forEach(item => {
+                            content += `
+                                        <tr>
+                                            <td>${item.name}</td>
+                                            <td>${item.price.toLocaleString()} VNĐ</td>
+                                            <td>${item.quantity}</td>
+                                            <td>${(item.price * item.quantity).toLocaleString()} VNĐ</td>
+                                        </tr>
+                                    `;
+                        });
+
+                        content += '</tbody></table>';
+                    }
+
+                    document.getElementById("cartContent").innerHTML = content;
+
+                    // Hiển thị modal giỏ hàng
+                    new bootstrap.Modal(document.getElementById("cartModal")).show();
+                })
+                .catch(error => console.error('Lỗi khi tải giỏ hàng:', error));
+        });
+    </script>
+}

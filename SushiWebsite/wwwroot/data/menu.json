@@ -1,0 +1,51 @@
+[
+  {
+    "Id": 1,
+    "Name": "Sushi Roll",
+    "Price": 10.99,
+    "Description": "Delicious sushi roll",
+    "ImageUrl": "/images/sushi1.jpg",
+    "Category": "Sushi"
+  },
+
+  {
+    "Id": 6,
+    "Name": "Sushi Update",
+    "Price": 10.99,
+    "Description": "Delicious sushi roll",
+    "ImageUrl": "/images/sushi1.jpg",
+    "Category": "Sushi"
+  },
+  {
+    "Id": 2,
+    "Name": "Tempura",
+    "Price": 8.99,
+    "Description": "Crispy tempura with shrimp",
+    "ImageUrl": "/images/sushi1.jpg",
+    "Category": "Appetizer"
+  },
+  {
+    "Id": 3,
+    "Name": "Miso Soup",
+    "Price": 4.50,
+    "Description": "Traditional Japanese miso soup",
+    "ImageUrl": "/images/sushi1.jpg",
+    "Category": "Soup"
+  },
+  {
+    "Id": 4,
+    "Name": "Miso Soup",
+    "Price": 4.50,
+    "Description": "Traditional Japanese miso soup",
+    "ImageUrl": "/images/sushi1.jpg",
+    "Category": "Soup"
+  },
+  {
+    "Id": 5,
+    "Name": "Canh Soup",
+    "Price": 8.50,
+    "Description": "Traditional Japanese miso soup",
+    "ImageUrl": "/images/sushi1.jpg",
+    "Category": "Soup"
+  }
+]

@@ -1,0 +1,10 @@
+﻿@model List<SushiWebsite.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Order Confirmation";
+}
+
+<h1>Order Confirmation</h1>
+<p>@ViewBag.Message</p>
+
+<a href="@Url.Action("Index", "Menu")" class="btn btn-primary">Back to Menu</a>

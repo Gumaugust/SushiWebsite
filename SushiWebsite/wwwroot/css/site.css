@@ -1,0 +1,121 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Header logo */
+.logo {
+    height: 60px; /* Adjust height to match sushi */
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+}
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #007bff; /* Highlight color */
+    }
+
+/* Order Online button */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+/* Navbar shadow */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Default navbar style */
+.navbar {
+    transition: all 0.3s ease-in-out;
+}
+
+    /* Shrink header on scroll */
+    .navbar.shrink {
+        padding: 0.5rem 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff; /* Ensure visibility */
+    }
+
+/* Giảm kích thước tiêu đề danh mục */
+.category-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Card style nhỏ gọn */
+.menu-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    height: 100%; /* Đồng bộ chiều cao */
+}
+
+    .menu-card img {
+        max-height: 120px;
+        object-fit: cover;
+    }
+
+    .menu-card .card-body {
+        padding: 10px;
+    }
+
+    .menu-card .card-title {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .menu-card .card-text {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+
+/* Nút nhỏ hơn */
+.btn-sm {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+/* Hover hiệu ứng cho card */
+.menu-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}

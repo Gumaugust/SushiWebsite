@@ -1,0 +1,144 @@
+﻿@model List<SushiWebsite.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Giỏ Hàng";
+    var totalAmount = Model.Sum(item => item.Quantity * item.Price); // Tính tổng hóa đơn
+}
+
+<!-- Thiết lập background nhẹ nhàng phù hợp với quán ăn -->
+<style>
+    body {
+        background-color: #f4f4f4; /* Màu nền nhẹ, sạch sẽ */
+        color: #333; /* Màu chữ tối, dễ đọc */
+        font-family: 'Arial', sans-serif; /* Font chữ dễ đọc */
+    }
+
+    h1, h2 {
+        color: #4e4e4e; /* Màu xám tối cho tiêu đề */
+    }
+
+    .table {
+        background-color: #ffffff; /* Nền trắng cho bảng */
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ cho bảng */
+    }
+
+        .table th, .table td {
+            text-align: center;
+            padding: 12px; /* Thêm khoảng cách giữa các ô */
+        }
+
+        .table thead {
+            background-color: #6c757d; /* Màu xám cho tiêu đề bảng */
+            color: white;
+        }
+
+        .table tfoot td {
+            font-weight: bold;
+        }
+
+    .btn-primary {
+        background-color: #28a745; /* Màu xanh lá cây cho nút */
+        border-color: #28a745;
+    }
+
+        .btn-primary:hover {
+            background-color: #218838; /* Màu xanh đậm khi hover */
+            border-color: #218838;
+        }
+
+    .form-group label {
+        font-weight: bold;
+        color: #333; /* Màu chữ label tối */
+    }
+
+    .form-group input, .form-group select {
+        border-radius: 5px;
+        border: 1px solid #ccc; /* Viền nhẹ cho các input */
+        padding: 10px;
+        width: 100%; /* Đảm bảo input chiếm hết không gian */
+    }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #28a745; /* Viền xanh lá cây khi focus */
+        }
+
+    .footer {
+        background-color: #333; /* Màu nền tối cho footer */
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+</style>
+
+<h1 class="mb-4">Giỏ Hàng</h1>
+
+@if (!Model.Any())
+{
+    <p>Giỏ hàng của bạn đang trống.</p>
+}
+else
+{
+    <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@(item.Price.ToString("C"))</td>
+                        <td>@item.Quantity</td>
+                        <td>@((item.Quantity * item.Price).ToString("C"))</td>
+                        <td>
+                            <form method="post" asp-action="RemoveFromCart">
+                                <input type="hidden" name="id" value="@item.DishId" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right"><strong>Total:</strong></td>
+                    <td colspan="2">@totalAmount.ToString("C")</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <h2 class="mb-4">Thông Tin Khách Hàng</h2>
+    <form method="post" asp-action="PlaceOrder">
+        <div class="form-group mb-3">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="FirstName" class="form-control" required />
+        </div>
+        <div class="form-group mb-3">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="LastName" class="form-control" required />
+        </div>
+        <div class="form-group mb-3">
+            <label for="phoneNumber">Số Điện Thoại</label>
+            <input type="tel" id="phoneNumber" name="PhoneNumber" class="form-control" required />
+        </div>
+        <div class="form-group mb-3">
+            <label for="diningDateTime">Ngày Giờ Ăn</label>
+            <input type="datetime-local" id="diningDateTime" name="DiningDateTime" class="form-control"
+                   min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
+        </div>
+
+        <!-- Nút đặt hàng -->
+        <div class="d-flex justify-content-center mb-5">
+            <button type="submit" class="btn btn-lg btn-primary">Place Pickup Order Now</button>
+        </div>
+    </form>
+}
