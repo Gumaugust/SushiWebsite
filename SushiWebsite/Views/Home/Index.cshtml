@@ -2,7 +2,105 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1>Welcome to Sushi!</h1>
-    <p>Your favorite sushi is just a click away.</p>
+<div class="hero-section text-center">
+    <div class="hero-content">
+        <h1 class="display-4 fw-bold">Mr KOK
+Vietnamese-Japanese food!</h1>
+        <p class="lead">Sushi and More… for Take away!</p>
+        <a href="/menu" class="btn btn-primary btn-lg">Explore Menu</a>
+        <a href="/reservation" class="btn btn-outline-light btn-lg ms-2">Essen abholen</a>
+    </div>
+        <!-- Icon mũi tên xuống -->
+    <div class="scroll-down-icon mt-4">
+        <a href="#specials"  id="scrollDown">
+            
+            <i class="fas fa-arrow-down fa-3x text-white"></i>
+        </a>
+    </div>
 </div>
+
+</div>
+
+<div id="specials" class="container py-5">
+    <div class="row text-center mb-4">
+        <h2 class="section-title">Our Specials</h2>
+        <p>Discover our chef’s signature dishes, prepared with the freshest ingredients.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="menu-card">
+                <img src="/images/food1.jpg" class="card-img-top" alt="Special Sushi">
+                <div class="card-body">
+                    <h5 class="card-title">Dragon Roll</h5>
+                    <p class="card-text">Avocado, eel, and cucumber topped with tempura flakes.</p>
+                    <a href="/menu" class="btn btn-sm btn-primary">Order Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="menu-card">
+                <img src="https://cdn0030.qrcodechimp.com/qr/PROD/667d61f18c2fb450683bba96/fm/whatsapp_image_2024-06-27_at_150530_4.jpeg" class="card-img-top" alt="Special Sushi">
+                <div class="card-body">
+                    <h5 class="card-title">Rainbow Roll</h5>
+                    <p class="card-text">Tuna, salmon, and avocado wrapped in rice paper.</p>
+                    <a href="/menu" class="btn btn-sm btn-primary">Order Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="menu-card">
+                <img src="https://cdn0030.qrcodechimp.com/qr/PROD/667d61f18c2fb450683bba96/fm/whatsapp_image_2024-06-27_at_150525_1.jpeg" class="card-img-top" alt="Special Sushi">
+                <div class="card-body">
+                    <h5 class="card-title">Sakura Roll</h5>
+                    <p class="card-text">Shrimp tempura with spicy mayo and eel sauce.</p>
+                    <a href="/menu" class="btn btn-sm btn-primary">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer bg-dark text-white pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Contact</h5>
+                <p><strong>Email:</strong> info@mrsushi.com</p>
+                <p><strong>Phone:</strong> +123 456 789</p>
+                <p><strong>Address:</strong> 123 Sushi Street, Tokyo, Japan</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/menu" class="text-white">Menu</a></li>
+                    <li><a href="/reservation" class="text-white">Reservation</a></li>
+                    <li><a href="/about" class="text-white">About Us</a></li>
+                    <li><a href="/privacy" class="text-white">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">Facebook</a></li>
+                    <li><a href="#" class="text-white">Instagram</a></li>
+                    <li><a href="#" class="text-white">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row text-center mt-4">
+            <div class="col">
+                <p>&copy; 2024 Mr KOK - Vietnamese-Japanese Food. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById("scrollDown").addEventListener("click", function(e) {
+        e.preventDefault(); // Ngừng hành động mặc định của liên kết (chuyển hướng)
+        document.querySelector("#specials").scrollIntoView({
+            behavior: "smooth", // Cuộn mượt mà
+            block: "start" // Cuộn đến đầu phần tử
+        });
+    });
+</script>

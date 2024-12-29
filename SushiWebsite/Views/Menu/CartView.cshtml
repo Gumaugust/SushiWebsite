@@ -1,11 +1,14 @@
 ﻿@model List<SushiWebsite.Models.CartItem>
 
 @{
-    ViewData["Title"] = "Giỏ Hàng";
+    ViewData["Title"] = "Cart";
     var totalAmount = Model.Sum(item => item.Quantity * item.Price); // Tính tổng hóa đơn
 }
 
 <!-- Thiết lập background nhẹ nhàng phù hợp với quán ăn -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 <style>
     body {
         background-color: #f4f4f4; /* Màu nền nhẹ, sạch sẽ */
@@ -46,18 +49,12 @@
             background-color: #218838; /* Màu xanh đậm khi hover */
             border-color: #218838;
         }
-
+    
     .form-group label {
         font-weight: bold;
         color: #333; /* Màu chữ label tối */
     }
 
-    .form-group input, .form-group select {
-        border-radius: 5px;
-        border: 1px solid #ccc; /* Viền nhẹ cho các input */
-        padding: 10px;
-        width: 100%; /* Đảm bảo input chiếm hết không gian */
-    }
 
         .form-group input:focus, .form-group select:focus {
             border-color: #28a745; /* Viền xanh lá cây khi focus */
@@ -69,13 +66,14 @@
         padding: 10px 0;
         text-align: center;
     }
+   
 </style>
-
-<h1 class="mb-4">Giỏ Hàng</h1>
+<html lang="en">
+<h1 class="mb-4">Cart</h1>
 
 @if (!Model.Any())
 {
-    <p>Giỏ hàng của bạn đang trống.</p>
+    <p>Your Cart is Empty.</p>
 }
 else
 {
@@ -116,7 +114,7 @@ else
         </table>
     </div>
 
-    <h2 class="mb-4">Thông Tin Khách Hàng</h2>
+    <h2 class="mb-4">Information</h2>
     <form method="post" asp-action="PlaceOrder">
         <div class="form-group mb-3">
             <label for="firstName">First Name</label>
@@ -127,14 +125,21 @@ else
             <input type="text" id="lastName" name="LastName" class="form-control" required />
         </div>
         <div class="form-group mb-3">
-            <label for="phoneNumber">Số Điện Thoại</label>
+            <label for="phoneNumber">Mobile Number</label>
             <input type="tel" id="phoneNumber" name="PhoneNumber" class="form-control" required />
         </div>
-        <div class="form-group mb-3">
-            <label for="diningDateTime">Ngày Giờ Ăn</label>
-            <input type="datetime-local" id="diningDateTime" name="DiningDateTime" class="form-control"
-                   min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
-        </div>
+         <div class="form-group">
+        <label for="diningDateTime">Time</label>
+              <input id="datetimePicker" name="datetimePicker" type="text" class="form-control" required />
+                 <script>
+                flatpickr("#datetimePicker", {
+                    enableTime: true,
+                        dateFormat:"Y-m-d\\TH:i",
+                    minDate: "today",
+                });
+            </script>
+    
+    </div>
 
         <!-- Nút đặt hàng -->
         <div class="d-flex justify-content-center mb-5">
@@ -142,3 +147,4 @@ else
         </div>
     </form>
 }
+ </html>

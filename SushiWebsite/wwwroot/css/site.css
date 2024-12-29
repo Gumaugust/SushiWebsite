@@ -1,44 +1,82 @@
-﻿html {
-  font-size: 14px;
-}
-
+﻿
+@import url('site.css');
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+
   }
+}
+/* Điều chỉnh cho các cột trên màn hình nhỏ */
+@media (max-width: 767px) {
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .hero-section {
+        background-image: url('/images/background.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}
+/* Thay đổi background cho giao diện điện thoại */
+
+html {
+ 
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
 
 body {
+    color: white !important; /* Màu chữ cho toàn bộ trang */
+    font-family: 'Poppins', sans-serif; /* Font chính cho toàn trang */
+    background-image: url('../images/background.jpg'); /* Đường dẫn đến ảnh */
+    background-size: cover; /* Phủ toàn màn hình */
+    background-position: center; /* Canh giữa */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
     margin-bottom: 60px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative; /* Cần thiết để thêm overlay */
 }
+
+    /* Thêm lớp phủ tối */
+    body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Màu tối với độ trong suốt 50% */
+        z-index: -1; /* Đảm bảo lớp phủ nằm dưới các phần tử khác */
+    }
 /* Header logo */
 .logo {
     height: 60px; /* Adjust height to match sushi */
 }
 
+/* Đảm bảo màu sắc icon hamburger là trắng */
+.navbar-toggler-icon {
+    background-color: #fff; /* Chuyển màu icon thành trắng */
+}
 /* Navbar links */
 .navbar-nav .nav-link {
-    font-size: 1rem;
+    font-size: 1.32rem;
     font-weight: 500;
-    color: #333;
+    color: #fff !important ;
     transition: color 0.3s;
 }
 
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link.active {
-        color: #007bff; /* Highlight color */
+        color: #FFE9A7 !important;
     }
 
 /* Order Online button */
@@ -71,6 +109,19 @@ body {
         background-color: #fff; /* Ensure visibility */
     }
 
+/* Đảm bảo màu sắc navbar không quá tối */
+.navbar-dark .navbar-toggler-icon {
+    background-color: #fff; /* Chuyển màu icon thành trắng */
+}
+
+.navbar-nav .nav-link {
+    color: #fff; /* Màu chữ của các item trong navbar */
+}
+
+    .navbar-nav .nav-link.active {
+        color: #f8f9fa; /* Màu chữ khi active */
+    }
+
 /* Giảm kích thước tiêu đề danh mục */
 .category-title {
     font-size: 1.2rem;
@@ -88,7 +139,7 @@ body {
 }
 
     .menu-card img {
-        max-height: 120px;
+        max-height: 180px;
         object-fit: cover;
     }
 
@@ -118,4 +169,154 @@ body {
 .menu-card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
+}
+
+/* Home index*/
+/* Hero Section */
+.hero-section {
+    background-image: url('/images/hero-banner.jpg'); /* Thay bằng ảnh của bạn */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 70px; /* Tăng padding để tạo không gian cho ảnh */
+    text-align: center;
+    height: 80vh; /* Tăng chiều cao của phần hero */
+}
+
+
+/* Thay đổi background cho giao diện điện thoại */
+@media (max-width: 768px) {
+    .hero-section {
+        background-image: url('/images/mobile-background.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    
+    margin-bottom: 1rem;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-content .btn {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Menu Card */
+.menu-card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .menu-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-card img {
+        width: 100%;
+        height: auto;
+        
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .menu-card .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .menu-card .card-text {
+        color: #666;
+    }
+
+/* Footer Section */
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.footer {
+    background-color: #333;
+    padding: 40px 0;
+}
+
+    .footer h5 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .footer ul li {
+        margin-bottom: 10px;
+    }
+
+        .footer ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+            .footer ul li a:hover {
+                color: #ffcc00;
+            }
+
+    .footer .container {
+        max-width: 1140px;
+    }
+
+    /* animation scroll*/
+.scroll-down-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    animation: bounce 1.5s infinite;
+
+}
+
+    .scroll-down-icon a {
+        margin-top: 50px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .scroll-down-icon i {
+       
+        font-size: 3rem;
+        transition: transform 0.3s ease;
+    }
+
+        .scroll-down-icon i:hover {
+            transform: scale(1.2);
+        }
+
+/* Hiệu ứng bounce nhẹ cho mũi tên */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }

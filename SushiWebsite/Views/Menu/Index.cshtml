@@ -19,11 +19,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Giỏ Hàng</h5>
+                <h5 class="modal-title">Cart</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div id="cartContent">Đang tải...</div>
+                <div id="cartContent">Loading...</div>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
                 <img src="@dish.ImageUrl" alt="@dish.Name" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
                 <div class="flex-grow-1">
                     <h6 class="mb-1">@dish.Name</h6>
-                    <small>@dish.Description</small>
+                            <small>@Html.Raw(dish.Description.Replace("\n", "<br>"))</small>
                 </div>
                 <div>
                     <p class="mb-0"><strong>@dish.Price.ToString("C")</strong></p>
@@ -65,19 +65,19 @@
                     let content = '';
 
                     if (data.length === 0) {
-                        content = '<p>Giỏ hàng của bạn đang trống.</p>';
+                        content = '<p>Your Cart is Empty.</p>';
                     } else {
                         content += '<table class="table table-bordered">';
-                        content += '<thead><tr><th>Tên Món</th><th>Giá</th><th>Số Lượng</th><th>Tổng</th></tr></thead>';
+                        content += '<thead><tr><th>Name</th><th>Price</th><th>Quantity</th><th>Total</th></tr></thead>';
                         content += '<tbody>';
 
                         data.forEach(item => {
                             content += `
                                         <tr>
                                             <td>${item.name}</td>
-                                            <td>${item.price.toLocaleString()} VNĐ</td>
+                                                <td>${item.price.toLocaleString()} €</td>
                                             <td>${item.quantity}</td>
-                                            <td>${(item.price * item.quantity).toLocaleString()} VNĐ</td>
+                                                <td>${(item.price * item.quantity).toLocaleString()} €</td>
                                         </tr>
                                     `;
                         });
@@ -90,7 +90,7 @@
                     // Hiển thị modal giỏ hàng
                     new bootstrap.Modal(document.getElementById("cartModal")).show();
                 })
-                .catch(error => console.error('Lỗi khi tải giỏ hàng:', error));
+                .catch(error => console.error('Error Loading:', error));
         });
     </script>
 }

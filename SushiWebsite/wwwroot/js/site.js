@@ -2,6 +2,10 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+document.querySelector('.navbar-toggler').addEventListener('click', function () {
+    var navbarCollapse = document.getElementById('navbarNav');
+    navbarCollapse.classList.toggle('show');
+});
 document.addEventListener("scroll", function () {
     const navbar = document.querySelector(".navbar");
     if (window.scrollY > 50) {
@@ -10,3 +14,8 @@ document.addEventListener("scroll", function () {
         navbar.classList.remove("shrink");
     }
 });
+
+
+
+
+
