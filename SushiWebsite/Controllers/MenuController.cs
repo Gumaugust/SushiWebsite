@@ -48,7 +48,7 @@ namespace SushiWebsite.Controllers
         // Hiển thị giỏ hàng
         public IActionResult CartView()
         {
-            return View(Cart);
+            return View(CartView);
         }
 
         // Xử lý thêm món vào giỏ hàng
@@ -96,7 +96,6 @@ namespace SushiWebsite.Controllers
             return RedirectToAction("CartView");
         }
 
-        /////////////////
         // Đặt hàng và gửi thông báo qua Telegram
         [HttpPost]
         public async Task<IActionResult> PlaceOrder(string firstName, string lastName, string phoneNumber, DateTime datetimePicker)
@@ -183,7 +182,56 @@ Total Amount: {cartItems.Sum(item => item.Quantity * item.Price):C}
             await client.PostAsync(url, content);
         }
 
-       
-       
+        [HttpGet]
+        public IActionResult ReserveTable()
+        {
+            return View(new ReservationViewModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ReserveTable(ReservationViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model); // Trả lại view với thông tin lỗi
+            }
+
+            // Chuyển thời gian từ ngày và giờ thành DateTime
+            if (!TimeSpan.TryParse(model.Time, out var timeSpan))
+            {
+                ModelState.AddModelError("Time", "Invalid time format.");
+                return View(model);
+            }
+            if (!model.Date.HasValue)
+            {
+                ModelState.AddModelError("Date", "Date is Required");
+                return View(model);
+
+            }
+            var reservationDateTime = model.Date.Value.Add(timeSpan);
+
+            string message = $@"
+New Table Reservation:
+- Number of People: {model.NumberOfPeople}
+- Date and Time: {reservationDateTime:dd/MM/yyyy HH:mm}
+- Note: {model.Note ?? "None"}
+    ";
+
+            await SendMessageToTelegram(message);
+
+            ViewBag.Message = "Table reservation is successful!";
+           return RedirectToAction("ReserveConfirmation");
+        }
+
+
+        // Hiển thị xác nhận đặt bàn
+        public IActionResult ReserveConfirmation()
+        {
+            return View();
+        }
+
+
+
+
     }
 }

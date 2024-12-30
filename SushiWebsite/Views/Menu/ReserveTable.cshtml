@@ -1,0 +1,79 @@
+﻿@model SushiWebsite.Models.ReservationViewModel
+
+<div class="container mt-5">
+    <h2>Reserve a Table</h2>
+    <form method="post" asp-action="ReserveTable">
+        <!-- Họ và tên -->
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" class="form-control" id="fullName" name="FullName" value="@Model?.FullName" required />
+            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Số điện thoại -->
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" class="form-control" id="phoneNumber" name="PhoneNumber" value="@Model?.PhoneNumber" required pattern="[0-9]{10}" />
+            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Số người -->
+        <div class="form-group">
+            <label for="numberOfPeople">Number of People</label>
+            <select class="form-control" id="numberOfPeople" name="NumberOfPeople" required>
+                @for (int i = 1; i <= 8; i++)
+                {
+                    if (Model?.NumberOfPeople == i)
+                    {
+                        <option value="@i" selected>@i</option>
+                    }
+                    else
+                    {
+                        <option value="@i">@i</option>
+                    }
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.NumberOfPeople, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Ngày -->
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" name="Date"
+                   value="@(Model?.Date.HasValue == true ? Model.Date.Value.ToString("yyyy-MM-dd") : "")"
+                   min="@DateTime.Today.ToString("yyyy-MM-dd")"
+                   max="@DateTime.Today.AddDays(7).ToString("yyyy-MM-dd")" required />
+            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+        </div>
+
+
+        <!-- Giờ -->
+        <div class="form-group">
+            <label for="time">Time</label>
+            <select class="form-control" id="time" name="Time" required>
+                @for (var time = new DateTime(2024, 1, 1, 9, 0, 0); time <= new DateTime(2024, 1, 1, 21, 0, 0); time = time.AddMinutes(15))
+                {
+                    if (Model?.Time == time.ToString("HH:mm"))
+                    {
+                        <option value="@time.ToString("HH:mm")" selected>@time.ToString("HH:mm")</option>
+                    }
+                    else
+                    {
+                        <option value="@time.ToString("HH:mm")">@time.ToString("HH:mm")</option>
+                    }
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Ghi chú -->
+        <div class="form-group">
+            <label for="note">Note</label>
+            <textarea class="form-control" id="note" name="Note" maxlength="200">@Model?.Note</textarea>
+            @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+            <small class="form-text text-muted">Maximum 200 characters.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Reserve</button>
+    </form>
+</div>

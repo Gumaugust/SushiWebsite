@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Reservation Confirmation";
+}
+
+<h1>Reservation Confirmation</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
+<p>Thank you for reserving a table with us. We look forward to serving you!</p>
+
+<a href="/" class="btn btn-primary">Go Back to Home</a>
