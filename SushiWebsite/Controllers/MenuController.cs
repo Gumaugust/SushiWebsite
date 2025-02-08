@@ -48,7 +48,7 @@ namespace SushiWebsite.Controllers
         // Hiển thị giỏ hàng
         public IActionResult CartView()
         {
-            return View(CartView);
+            return View(Cart);
         }
 
         // Xử lý thêm món vào giỏ hàng
@@ -158,9 +158,11 @@ New Order Received:
 - Last Name: {lastName}
 - Phone Number: {phoneNumber}
 - Dining Date and Time: {datetimePicker:dd/MM/yyyy HH:mm}
-
+=======================================
 Order Details:
 {string.Join("\n", orderDetails)}
+
+=======================================
 Total Amount: {cartItems.Sum(item => item.Quantity * item.Price):C}
             ";
         }

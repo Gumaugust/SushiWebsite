@@ -11,28 +11,28 @@
 
 <style>
     body {
-        background-color: #f4f4f4; /* Màu nền nhẹ, sạch sẽ */
-        color: #333; /* Màu chữ tối, dễ đọc */
-        font-family: 'Arial', sans-serif; /* Font chữ dễ đọc */
+        background-color: #f4f4f4; 
+        color: #333; 
+        font-family: 'Arial', sans-serif; 
     }
 
     h1, h2 {
-        color: #4e4e4e; /* Màu xám tối cho tiêu đề */
+        color: #ffffff;
     }
 
     .table {
-        background-color: #ffffff; /* Nền trắng cho bảng */
+        background-color: #ffffff; 
         border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ cho bảng */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     }
 
         .table th, .table td {
             text-align: center;
-            padding: 12px; /* Thêm khoảng cách giữa các ô */
+            padding: 12px; 
         }
 
         .table thead {
-            background-color: #6c757d; /* Màu xám cho tiêu đề bảng */
+            background-color: #6c757d; 
             color: white;
         }
 
@@ -41,27 +41,27 @@
         }
 
     .btn-primary {
-        background-color: #28a745; /* Màu xanh lá cây cho nút */
+        background-color: #28a745; 
         border-color: #28a745;
     }
 
         .btn-primary:hover {
-            background-color: #218838; /* Màu xanh đậm khi hover */
+            background-color: #218838; 
             border-color: #218838;
         }
     
     .form-group label {
         font-weight: bold;
-        color: #333; /* Màu chữ label tối */
+        /* color: #333;  */
     }
 
 
         .form-group input:focus, .form-group select:focus {
-            border-color: #28a745; /* Viền xanh lá cây khi focus */
+            border-color: #28a745; 
         }
 
     .footer {
-        background-color: #333; /* Màu nền tối cho footer */
+        background-color: #333;
         color: white;
         padding: 10px 0;
         text-align: center;
@@ -95,7 +95,7 @@ else
                         <td>@item.Name</td>
                         <td>@(item.Price.ToString("C"))</td>
                         <td>@item.Quantity</td>
-                        <td>@((item.Quantity * item.Price).ToString("C"))</td>
+                        <td>@((item.Quantity * item.Price).ToString("C", new System.Globalization.CultureInfo("de-DE")))</td>
                         <td>
                             <form method="post" asp-action="RemoveFromCart">
                                 <input type="hidden" name="id" value="@item.DishId" />
@@ -115,36 +115,54 @@ else
     </div>
 
     <h2 class="mb-4">Information</h2>
-    <form method="post" asp-action="PlaceOrder">
-        <div class="form-group mb-3">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="FirstName" class="form-control" required />
+    <form method="post" asp-action="PlaceOrder" class="container">
+        <div class="row">
+            <!-- First Name -->
+            <div class="col-md-6 mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" id="firstName" name="FirstName" class="form-control" required />
+            </div>
+            <!-- Last Name -->
+            <div class="col-md-6 mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" id="lastName" name="LastName" class="form-control" required />
+            </div>
         </div>
-        <div class="form-group mb-3">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="LastName" class="form-control" required />
+
+        <div class="row">
+            <!-- Mobile Number -->
+            <div class="col-md-6 mb-3">
+                <label for="phoneNumber" class="form-label">Mobile Number</label>
+                <input type="tel" id="phoneNumber" name="PhoneNumber" class="form-control" required
+                       pattern="^\+49\d{10}|\d{10,11}$"
+                       title="Die Telefonnummer muss 10-11 Ziffern lang sein (oder +49 und 10 Ziffern)" />
+            </div>
+            <!-- Time Picker -->
+            <div class="col-md-6 mb-3">
+                <label for="datetimePicker" class="form-label">Time</label>
+                <input id="datetimePicker" name="datetimePicker" type="text" class="form-control" required />
+            </div>
         </div>
-        <div class="form-group mb-3">
-            <label for="phoneNumber">Mobile Number</label>
-            <input type="tel" id="phoneNumber" name="PhoneNumber" class="form-control" required />
-        </div>
-         <div class="form-group">
-        <label for="diningDateTime">Time</label>
-              <input id="datetimePicker" name="datetimePicker" type="text" class="form-control" required />
-                 <script>
-                flatpickr("#datetimePicker", {
-                    enableTime: true,
-                        dateFormat:"Y-m-d\\TH:i",
-                    minDate: "today",
-                });
-            </script>
-    
-    </div>
 
         <!-- Nút đặt hàng -->
-        <div class="d-flex justify-content-center mb-5">
-            <button type="submit" class="btn btn-lg btn-primary">Place Pickup Order Now</button>
+        <div class="d-flex justify-content-center mb-4">
+            <button type="submit" class="btn btn-lg btn-primary w-100 w-md-auto">Place Pickup Order Now</button>
         </div>
     </form>
+
+    <!-- Flatpickr Script -->
+    <script>
+        flatpickr("#datetimePicker", {
+            enableTime: true,
+            dateFormat: "Y-m-d\\TH:i",
+            minDate: "today",
+        });
+
+        // Tự động loại bỏ ký tự không hợp lệ khi nhập số điện thoại
+        document.getElementById("phoneNumber").addEventListener("input", function (e) {
+            this.value = this.value.replace(/[^0-9+]/g, "");
+        });
+    </script>
+
 }
  </html>

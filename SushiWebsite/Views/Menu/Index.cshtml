@@ -3,11 +3,65 @@
 @{
     ViewData["Title"] = "Menu";
 }
+<style>
+    .category-arrow i {
+        color: white; /* Màu trắng cho mũi tên */
+        transition: transform 0.3s ease; /* Thêm hiệu ứng xoay khi mở/đóng category */
+    }
+
+    /* Khi mở (mũi tên lên) */
+    .category-title button.open .category-arrow i {
+        transform: rotate(180deg); /* Xoay mũi tên */
+    }
+    /* Nút chính - Thêm vào giỏ */
+    .category-title button {
+        background-color: #FF7043; /* Màu cam tươi */
+        color: white; /* Chữ trắng */
+        border-radius: 5px;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        text-decoration: none;
+        border: none;
+        transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+    }
+
+        .category-title button:hover {
+            background-color: #FF5722; /* Màu cam đậm hơn khi hover */
+        }
+
+
+    /* Nút phụ - Xem giỏ hàng */
+    .btn-view-cart {
+        background-color: #4CAF50; /* Màu xanh lá cây */
+        color: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-view-cart:hover {
+            background-color: #388E3C; /* Màu xanh lá cây đậm hơn khi hover */
+        }
+
+    .collapse-content {
+        display: none;
+    }
+
+    .collapse-content-show {
+        display: block;
+    }
+
+</style>
 
 <h1 class="text-center my-4">Menu</h1>
 
 <!-- Nút View Your Cart -->
-<button id="viewCartBtn" class="btn btn-success btn-sm mt-3 mb-5">View Your Cart!
+<button id="viewCartBtn" class="btn btn-success btn-sm mt-3 mb-5">
+    View Your Cart!
     @if (ViewBag.CartItemCount > 0)
     {
         <span class="badge bg-danger ms-2">@ViewBag.CartItemCount</span>
@@ -31,33 +85,63 @@
 
 @foreach (var category in Model)
 {
-    <h3 class="category-title">@category.Key</h3>
-    <ul class="list-group mb-4">
-        @foreach (var dish in category)
-        {
-            <li class="list-group-item d-flex align-items-center">
-                <img src="@dish.ImageUrl" alt="@dish.Name" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
-                <div class="flex-grow-1">
-                    <h6 class="mb-1">@dish.Name</h6>
-                            <small>@Html.Raw(dish.Description.Replace("\n", "<br>"))</small>
-                </div>
-                <div>
-                    <p class="mb-0"><strong>@dish.Price.ToString("C")</strong></p>
-                    <form method="post" asp-action="AddToCart" class="mt-1">
-                        <input type="hidden" name="id" value="@dish.Id" />
-                        <button type="submit" class="btn btn-sm btn-primary">Thêm</button>
-                    </form>
-                </div>
-            </li>
-        }
-    </ul>
+    <h3 class="category-title">
+        <button class="toggle-category" data-category="collapseCategory-@category.Key" >
+            <span>@category.Key</span>
+            <span class="category-arrow"><i class="bi bi-caret-down-fill"></i></span> <!-- Dấu mũi tên -->
+        </button>
+    </h3>
+
+
+    <!-- Đoạn code thu gọn category -->
+    <div id="collapseCategory-@category.Key" class="collapse-content">
+        <ul class="list-group mb-4">
+            @foreach (var dish in category)
+            {
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="@dish.ImageUrl" alt="@dish.Name" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                    <div class="flex-grow-1">
+                        <h6 class="mb-1">@dish.Name</h6>
+                        <small>@Html.Raw(dish.Description.Replace("\n", "<br>"))</small>
+                    </div>
+                    <div>
+                        <p class="mb-0"><strong>@dish.Price.ToString("C", new System.Globalization.CultureInfo("de-DE"))</strong></p>
+                        <form method="post" asp-action="AddToCart" class="mt-1">
+                            <input type="hidden" name="id" value="@dish.Id" />
+                            <button type="submit" class="btn btn-sm btn-primary">Thêm</button>
+                        </form>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
 }
-<a asp-action="CartView" class="btn btn-success btn-sm mt-3 mb-5">View Your Cart!</a>
 
-
+<a asp-action="CartView" class="btn btn-success btn-sm mt-3 mb-5">Go to Your Cart!</a>
 
 @section Scripts {
     <script>
+        // Tự động điều chỉnh giá trị của aria-expanded khi một button được click
+        document.querySelectorAll('.toggle-category').forEach(function (button) {
+            button.addEventListener('click', function () {
+                const categoryId = this.getAttribute('data-category');
+                const categoryContent = document.getElementById(categoryId);
+                const arrowIcon = this.querySelector('.category-arrow i'); // Lấy dấu mũi tên
+
+                // Kiểm tra xem category đã mở hay chưa, nếu có thì đóng lại
+                if (categoryContent.classList.contains('collapse-content-show')) {
+                    categoryContent.classList.remove('collapse-content-show');
+                    arrowIcon.classList.remove('bi-chevron-up'); // Đổi mũi tên
+                    arrowIcon.classList.add('bi-chevron-down');  // Đổi lại mũi tên xuống
+                } else {
+                    // Nếu chưa mở, mở nó
+                    categoryContent.classList.add('collapse-content-show');
+                    arrowIcon.classList.remove('bi-chevron-down'); // Đổi mũi tên
+                    arrowIcon.classList.add('bi-chevron-up');      // Đổi thành mũi tên lên
+                }
+            });
+        });
+
         document.getElementById("viewCartBtn").addEventListener("click", function () {
             fetch('/Menu/GetCartItems') // Gửi yêu cầu đến action GetCartItems
                 .then(response => response.json()) // Nhận kết quả JSON
@@ -75,9 +159,9 @@
                             content += `
                                         <tr>
                                             <td>${item.name}</td>
-                                                <td>${item.price.toLocaleString()} €</td>
+                                            <td>${item.price.toLocaleString()} €</td>
                                             <td>${item.quantity}</td>
-                                                <td>${(item.price * item.quantity).toLocaleString()} €</td>
+                                            <td>${(item.price * item.quantity).toLocaleString()} €</td>
                                         </tr>
                                     `;
                         });

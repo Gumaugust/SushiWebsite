@@ -1,99 +1,187 @@
 [
-  {
-    "Id": 1,
-    "Name": "V1. NEM / FRÜHING SROLLEN / SPRINGROLLS ( 2ST.)",
-    "Price": 5.90,
-    "Description": "+ knusprig frittiert mit faschierten Hünerfleisch, Gamelen und Gemüse deep fried and filled with minced chicken, shrimp and vegetables",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 2,
-    "Name": "V2. NEM CHAY / VEGANEF RÜHLINGSROLLEN / VEGAN SPRINGROLLS (2st.)",
-    "Price": 5.90,
-    "Description": "+ knusprig frittiert mit verschiedenen Gemüsesorten deep-fried and filled with various kinds of vegetables",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 3,
-    "Name": "V3. NEM MINI SPRING ROLL (6 ST.)",
-    "Price": 4.90,
-    "Description": "+knusprig frittiert Gemüsesminiröllchen deep-fried vegetable mini spring rolls",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 4,
-    "Name": "V4. WANTAN",
-    "Price": 5.90,
-    "Description": "+ frittierte Teigtaschen mit faschiertem Hühnerfleisch und Garnelen deep-fried dumplings filled with minced chicken and shrimp",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 5,
-    "Name": "V5. TOM CHIEN XU / EBI TEMPURA (3 ST.)",
-    "Price": 7.90,
-    "Description": "+ paniert und knusprig frittierte Ebi Garnelen deep-fried shrimps breaded with panko",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 6,
-    "Name": "V6. KHOAI LANG CHIEN",
-    "Price": 5.90,
-    "Description": "+ Süßkartoffel-Pommes mit hausgemachtem Mayonnaise-Dip sweet potato fries with homemade mayo dip",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 7,
-    "Name": "V7. HÜHNERGYOZA / CHICKEN GYOZA (5 ST.)",
-    "Price": 5.90,
-    "Description": "+ gebratene Teigtaschen mit Hühnerfleisch pan-fried dumplings filled with chicken",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 8,
-    "Name": "V8. GEMÜSE GYOZA / VEGGIE GYOZA (5 ST.)",
-    "Price": 5.90,
-    "Description": "+ gebratene Teigtaschen mit verschiedenen Gemüsesorten pan-fried dumplings with various kinds of vegetables",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 9,
-    "Name": "V9. EDAMAME",
-    "Price": 5.90,
-    "Description": "+ gedämpfte japanische Sojabohnen mit Meersalz steamed Japanese soybeans with sea salt",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 10,
-    "Name": "V10. HACAO (5 ST.)",
-    "Price": 7.90,
-    "Description": "+ gedämpfte Teigtaschen gefüllt mit Garnelen steamed dumplings filled with shrimps",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 11,
-    "Name": "V11.CUON / SOMMERROLLE / SUMMER ROLLS",
-    "Price": 7.90,
-    "Description": "+ Nudeln und Gemüse umwickelt in Reispapier noodles and vegetables wrapped in rice paper. \n mit Garnelen / with shrimps: 6,90 €\nmit Huhn / with chicken: 5,90 €\nmit Rind / with beef: 6,90 €\nmit Avocado / with avocado: 5,90 €",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  },
-  {
-    "Id": 12,
-    "Name": " V12. KOK VORSPEISEN MIX FÜR 2 PERSONEN",
-    "Price": 18.90,
-    "Description": "+ Frühlingsrolle (1 St.) – 4 Minirollen – Sommerrolle (1 St.) – Gyoza (4 St.) – Wantan (2 St.) spring roll (1 pc) – 4 mini rolls – summer roll (1 pc) – Gyoza (4 pcs) – Wantan (2 pcs) \n Auch in vegan verfügbar / Also available in vegan \n vegane Frühlingsrolle – Sommerrolle mit Avocado – Gemüse Gyoza – Edamame – Süßkartoffelpommes \n vegan spring roll – summer roll with avocado – veggie Gyoza – edamame – sweet potato fries",
-    "ImageUrl": "/images/sushi1.jpg",
-    "Category": "VORSPEISEN / STARTERS"
-  }
- 
+    {
+        "Id": 1,
+        "Name": "V1. NEM / FRÜHING SROLLEN / SPRINGROLLS ( 2ST.)",
+        "Price": 5.90,
+        "Description": "+ knusprig frittiert mit faschierten Hünerfleisch, Gamelen und Gemüse deep fried and filled with minced chicken, shrimp and vegetables",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 2,
+        "Name": "V2. NEM CHAY / VEGANEF RÜHLINGSROLLEN / VEGAN SPRINGROLLS (2st.)",
+        "Price": 5.90,
+        "Description": "+ knusprig frittiert mit verschiedenen Gemüsesorten deep-fried and filled with various kinds of vegetables",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 3,
+        "Name": "V3. NEM MINI SPRING ROLL (6 ST.)",
+        "Price": 4.90,
+        "Description": "+knusprig frittiert Gemüsesminiröllchen deep-fried vegetable mini spring rolls",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 4,
+        "Name": "V4. WANTAN",
+        "Price": 5.90,
+        "Description": "+ frittierte Teigtaschen mit faschiertem Hühnerfleisch und Garnelen deep-fried dumplings filled with minced chicken and shrimp",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 5,
+        "Name": "V5. TOM CHIEN XU / EBI TEMPURA (3 ST.)",
+        "Price": 7.90,
+        "Description": "+ paniert und knusprig frittierte Ebi Garnelen deep-fried shrimps breaded with panko",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 6,
+        "Name": "V6. KHOAI LANG CHIEN",
+        "Price": 5.90,
+        "Description": "+ Süßkartoffel-Pommes mit hausgemachtem Mayonnaise-Dip sweet potato fries with homemade mayo dip",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 7,
+        "Name": "V7. HÜHNERGYOZA / CHICKEN GYOZA (5 ST.)",
+        "Price": 5.90,
+        "Description": "+ gebratene Teigtaschen mit Hühnerfleisch pan-fried dumplings filled with chicken",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 8,
+        "Name": "V8. GEMÜSE GYOZA / VEGGIE GYOZA (5 ST.)",
+        "Price": 5.90,
+        "Description": "+ gebratene Teigtaschen mit verschiedenen Gemüsesorten pan-fried dumplings with various kinds of vegetables",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 9,
+        "Name": "V9. EDAMAME",
+        "Price": 5.90,
+        "Description": "+ gedämpfte japanische Sojabohnen mit Meersalz steamed Japanese soybeans with sea salt",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 10,
+        "Name": "V10. HACAO (5 ST.)",
+        "Price": 7.90,
+        "Description": "+ gedämpfte Teigtaschen gefüllt mit Garnelen steamed dumplings filled with shrimps",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 11,
+        "Name": "V11.CUON / SOMMERROLLE / SUMMER ROLLS",
+        "Price": 7.90,
+        "Description": "+ Nudeln und Gemüse umwickelt in Reispapier noodles and vegetables wrapped in rice paper. \n mit Garnelen / with shrimps: 6,90 €\nmit Huhn / with chicken: 5,90 €\nmit Rind / with beef: 6,90 €\nmit Avocado / with avocado: 5,90 €",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 12,
+        "Name": " V12. KOK VORSPEISEN MIX FÜR 2 PERSONEN",
+        "Price": 18.90,
+        "Description": "+ Frühlingsrolle (1 St.) – 4 Minirollen – Sommerrolle (1 St.) – Gyoza (4 St.) – Wantan (2 St.) spring roll (1 pc) – 4 mini rolls – summer roll (1 pc) – Gyoza (4 pcs) – Wantan (2 pcs) \n Auch in vegan verfügbar / Also available in vegan \n vegane Frühlingsrolle – Sommerrolle mit Avocado – Gemüse Gyoza – Edamame – Süßkartoffelpommes \n vegan spring roll – summer roll with avocado – veggie Gyoza – edamame – sweet potato fries",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "VORSPEISEN / STARTERS"
+    },
+    {
+        "Id": 13,
+        "Name": "Oolong Tee",
+        "Price": 3.50,
+        "Description": "Traditioneller Oolong Tee",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 14,
+        "Name": "Grüner Tee",
+        "Price": 3.70,
+        "Description": "Frischer grüner Tee",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 15,
+        "Name": "Jasmin Tee",
+        "Price": 4.00,
+        "Description": "Aromatischer Jasmin Tee",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 16,
+        "Name": "Feige-Rose Tee",
+        "Price": 4.50,
+        "Description": "Tee mit Feige und Rosengeschmack",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 17,
+        "Name": "Hausgemachter Ingwer Tee",
+        "Price": 4.00,
+        "Description": "Frischer Ingwertee, hausgemacht",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 18,
+        "Name": "Hausgemachter Zitronengras Tee",
+        "Price": 4.00,
+        "Description": "Mit Zitronengras verfeinert",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 19,
+        "Name": "Cafe Phin",
+        "Price": 4.50,
+        "Description": "Vietnamesischer Filterkaffee mit süßer Kondensmilch",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 20,
+        "Name": "Kaffee",
+        "Price": 3.10,
+        "Description": "Schwarzer Kaffee",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 21,
+        "Name": "Espresso",
+        "Price": 2.90,
+        "Description": "Starker Espresso",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 22,
+        "Name": "Doppelter Espresso",
+        "Price": 3.80,
+        "Description": "Doppelte Menge Espresso",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 23,
+        "Name": "Cappuccino",
+        "Price": 3.90,
+        "Description": "Kaffee mit aufgeschäumter Milch",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "GETRÄNKE"
+    }
+
 ]
