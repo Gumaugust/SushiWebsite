@@ -182,6 +182,345 @@
         "Description": "Kaffee mit aufgeschäumter Milch",
         "ImageUrl": "/images/sushi1.jpg",
         "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 24,
+        "Name": "Cola / Cola Zero",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 2.90
+            },
+            {
+                "Size": "0.4l",
+                "Price": 4.20
+            }
+        ],
+        "Description": "Cola or Cola Zero",
+        "ImageUrl": "/images/cola.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 25,
+        "Name": "Fanta / Spezi / Sprite",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 2.90
+            },
+            {
+                "Size": "0.4l",
+                "Price": 4.20
+            }
+        ],
+        "Description": "Fanta, Spezi or Sprite",
+        "ImageUrl": "/images/fanta.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 26,
+        "Name": "Aquamorelli Sparkling / Still",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 2.50
+            },
+            {
+                "Size": "0.75l",
+                "Price": 6.50
+            }
+        ],
+        "Description": "Mineralwasser, mit oder ohne Kohlensäure",
+        "ImageUrl": "/images/water.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 27,
+        "Name": "Wasser (Soda / Still)",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 2.10
+            },
+            {
+                "Size": "0.4l",
+                "Price": 3.10
+            }
+        ],
+        "Description": "Normales oder kohlensäurehaltiges Wasser",
+        "ImageUrl": "/images/water.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 28,
+        "Name": "Apfelsaft / Apple Juice",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 2.50
+            },
+            {
+                "Size": "0.4l",
+                "Price": 3.90
+            }
+        ],
+        "Description": "Apple Juice - Schorle",
+        "ImageUrl": "/images/tea.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 29,
+        "Name": "Johannisbeersaft / Black Currant Juice",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 2.50
+            },
+            {
+                "Size": "0.4l",
+                "Price": 3.90
+            }
+        ],
+        "Description": "Black Currant Juice - Schorle",
+        "ImageUrl": "/images/tea.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 30,
+        "Name": "Orangensaft / Orange Juice",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 2.70
+            },
+            {
+                "Size": "0.4l",
+                "Price": 4.20
+            }
+        ],
+        "Description": "Orange Juice - Schorle",
+        "ImageUrl": "/images/tea.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 31,
+        "Name": "Lycheesaft / Lychee Juice",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 3.10
+            },
+            {
+                "Size": "0.4l",
+                "Price": 4.50
+            }
+        ],
+        "Description": "Lychee Juice - Schorle",
+        "ImageUrl": "/images/tea.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 32,
+        "Name": "Mangosaft / Mango Juice",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 3.10
+            },
+            {
+                "Size": "0.4l",
+                "Price": 4.50
+            }
+        ],
+        "Description": "Mango Juice - Schorle",
+        "ImageUrl": "/images/tea.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 33,
+        "Name": "Maracujasaft / Maracuja Juice",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 3.10
+            },
+            {
+                "Size": "0.4l",
+                "Price": 4.50
+            }
+        ],
+        "Description": "Maracuja Juice - Schorle",
+        "ImageUrl": "/images/tea.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 34,
+        "Name": "Aloeverasaft / Aloevera Juice",
+        "PriceOptions": [
+            {
+                "Size": "0.2l",
+                "Price": 3.10
+            },
+            {
+                "Size": "0.4l",
+                "Price": 4.50
+            }
+        ],
+        "Description": "Aloevera Juice - Schorle",
+        "ImageUrl": "/images/tea.jpg",
+        "Category": "GETRÄNKE"
+    },
+    {
+        "Id": 35,
+        "Name": "Fürstenberger Pilsner",
+        "Price": 4.20,
+        "Description": "Beer - 0.33",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 36,
+        "Name": "Fürstenberger (alkoholfrei)",
+        "Price": 4.30,
+        "Description": "Non-alcoholic Beer - 0.33",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 37,
+        "Name": "Hefeweizen weiß",
+        "Price": 4.30,
+        "Description": "Hefeweizen Beer - 0.33",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 38,
+        "Name": "Hefeweizen (alkoholfrei)",
+        "Price": 4.30,
+        "Description": "Non-alcoholic Hefeweizen - 0.33",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 39,
+        "Name": "Saigon Bier (aus VN)",
+        "Price": 4.30,
+        "Description": "Saigon Beer - 0.33",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 40,
+        "Name": "Radler",
+        "Price": 3.90,
+        "Description": "Radler Beer - 0.33",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 41,
+        "Name": "Aperol Spritz",
+        "Price": 6.90,
+        "Description": "Prosecco, Aperol, Orange, Minze & Soda",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 42,
+        "Name": "Hugo",
+        "Price": 6.90,
+        "Description": "Prosecco, Limette, Edenflowers Syrup, Minze & Soda",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 43,
+        "Name": "Campari Soda",
+        "Price": 5.90,
+        "Description": "Campari, Prosecco, Orange, Soda",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 44,
+        "Name": "Galie Prosecco (0.2l)",
+        "Price": 6.50,
+        "Description": "Prosecco - 0.2",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 45,
+        "Name": "Galie Prosecco (0.75l)",
+        "Price": 32.00,
+        "Description": "Prosecco - 0.75",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 46,
+        "Name": "Weißweinschorle",
+        "Price": 3.50,
+        "Description": "WEISS WEIN / WHITE WINE",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 47,
+        "Name": "Weißwein 1/8l",
+        "Price": 4.50,
+        "Description": "WEISS WEIN / WHITE WINE",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 48,
+        "Name": "Rotweinschorle",
+        "Price": 3.50,
+        "Description": "ROT WEIN / RED WINE - pEACH – PLUM – GREEN GRAPE",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 49,
+        "Name": "Rotwein 1/8l",
+        "Price": 4.50,
+        "Description": "ROT WEIN / RED WINE - pEACH – PLUM – GREEN GRAPE",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 50,
+        "Name": "Pleno Rosado",
+        "Price": 4.70,
+        "Description": "Pleno Rosado Wine",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 51,
+        "Name": "Nep Moi - vietnamesischer Schnaps 4 cl",
+        "Price": 5.90,
+        "Description": "Nep Moi - Vietnamese Schnaps",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 52,
+        "Name": "Lycheewein 0.2l",
+        "Price": 4.50,
+        "Description": "Lychee Wine - 0.2",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
+    },
+    {
+        "Id": 53,
+        "Name": "JINRO 350ml",
+        "Price": 12.50,
+        "Description": "JINRO - 350ml",
+        "ImageUrl": "/images/wine&beer.jpg",
+        "Category": "Beer & Wine"
     }
 
 ]

@@ -9,65 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-<style>
-    body {
-        background-color: #f4f4f4; 
-        color: #333; 
-        font-family: 'Arial', sans-serif; 
-    }
 
-    h1, h2 {
-        color: #ffffff;
-    }
-
-    .table {
-        background-color: #ffffff; 
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    }
-
-        .table th, .table td {
-            text-align: center;
-            padding: 12px; 
-        }
-
-        .table thead {
-            background-color: #6c757d; 
-            color: white;
-        }
-
-        .table tfoot td {
-            font-weight: bold;
-        }
-
-    .btn-primary {
-        background-color: #28a745; 
-        border-color: #28a745;
-    }
-
-        .btn-primary:hover {
-            background-color: #218838; 
-            border-color: #218838;
-        }
-    
-    .form-group label {
-        font-weight: bold;
-        /* color: #333;  */
-    }
-
-
-        .form-group input:focus, .form-group select:focus {
-            border-color: #28a745; 
-        }
-
-    .footer {
-        background-color: #333;
-        color: white;
-        padding: 10px 0;
-        text-align: center;
-    }
-   
-</style>
 <html lang="en">
 <h1 class="mb-4">Cart</h1>
 
@@ -134,8 +76,8 @@ else
             <div class="col-md-6 mb-3">
                 <label for="phoneNumber" class="form-label">Mobile Number</label>
                 <input type="tel" id="phoneNumber" name="PhoneNumber" class="form-control" required
-                       pattern="^\+49\d{10}|\d{10,11}$"
-                       title="Die Telefonnummer muss 10-11 Ziffern lang sein (oder +49 und 10 Ziffern)" />
+                       pattern="^\+49\d{10}|\d{10,14}$"
+                       title="Die Telefonnummer muss 10-14 Ziffern lang sein (oder +49 und 10 Ziffern)" />
             </div>
             <!-- Time Picker -->
             <div class="col-md-6 mb-3">
@@ -144,14 +86,97 @@ else
             </div>
         </div>
 
+        <div class="row">
+            <div class="mb-6">
+                <label for="note" class="form-label">Note</label>
+                <textarea class="form-control" id="note" name="Note" maxlength="200"></textarea>
+                <small  class="form-text text-info" >Maximum 200 characters.</small>
+            </div>
+        </div>
+
+        <!-- Checkbox xác nhận -->
+        <div class="form-check my-3 d-flex align-items-center gap-2">
+            <input type="checkbox" class="form-check-input" id="confirmCheckbox" style="width: 24px; height: 24px;">
+            <label class="form-check-label" for="confirmCheckbox">
+                Ich bestätige die Richtigkeit der oben genannten Angaben und bin mit der Aufgabe der Bestellung einverstanden.
+                <br>
+                <small class="text-info">ENG: I confirm that the above information is correct and agree to place an order.</small>
+            </label>
+        </div>
+
+
         <!-- Nút đặt hàng -->
         <div class="d-flex justify-content-center mb-4">
-            <button type="submit" class="btn btn-lg btn-primary w-100 w-md-auto">Place Pickup Order Now</button>
+            <button type="submit" class="btn btn-lg btn-primary w-100 w-md-auto" id="submitButton" disabled>
+                Place Pickup Order Now
+            </button>
         </div>
     </form>
 
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1, h2 {
+            color: #ffffff;
+        }
+
+        .table {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+            .table th, .table td {
+                text-align: center;
+                padding: 12px;
+            }
+
+            .table thead {
+                background-color: #6c757d;
+                color: white;
+            }
+
+            .table tfoot td {
+                font-weight: bold;
+            }
+
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+            .btn-primary:hover {
+                background-color: #218838;
+                border-color: #218838;
+            }
+
+        .form-group label {
+            font-weight: bold;
+            /* color: #333;  */
+        }
+
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #28a745;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
     <!-- Flatpickr Script -->
     <script>
+             document.getElementById('confirmCheckbox').addEventListener('change', function () {
+            document.getElementById('submitButton').disabled = !this.checked;
+        });
         flatpickr("#datetimePicker", {
             enableTime: true,
             dateFormat: "Y-m-d\\TH:i",

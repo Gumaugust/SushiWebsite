@@ -51,30 +51,57 @@ namespace SushiWebsite.Controllers
             return View(Cart);
         }
 
-        // Xử lý thêm món vào giỏ hàng
+      
+
         [HttpPost]
-        public IActionResult AddToCart(int id)
+        public IActionResult AddToCart(int id, string? size)
         {
             var dish = GetDishes().FirstOrDefault(d => d.Id == id);
-            if (dish != null)
+            if (dish == null)
             {
-                var cart = Cart;
-                var item = cart.FirstOrDefault(c => c.DishId == id);
-
-                if (item == null)
-                {
-                    cart.Add(new CartItem { DishId = dish.Id, Name = dish.Name, Price = dish.Price, Quantity = 1 });
-                }
-                else
-                {
-                    item.Quantity++;
-                }
-
-                Cart = cart; // Cập nhật giỏ hàng
+                return Json(new { success = false, message = "Dish not found" });
             }
 
-            return RedirectToAction("Index");
+            decimal selectedPrice = dish.PriceOptions?.FirstOrDefault(p => p.Size == size)?.Price ?? dish.Price;
+
+            if (dish.PriceOptions != null && dish.PriceOptions.Count > 0 && !dish.PriceOptions.Any(p => p.Size == size))
+            {
+                return Json(new { success = false, message = "Invalid size" });
+            }
+
+            var cart = Cart ?? new List<CartItem>();
+
+            var item = cart.FirstOrDefault(c => c.DishId == id && c.Size == (size ?? "default"));
+
+            if (item == null)
+            {
+                cart.Add(new CartItem
+                {
+                    DishId = dish.Id,
+                    Name = dish.Name,
+                    Size = size ?? "default",
+                    Price = selectedPrice,
+                    Quantity = 1
+                });
+            }
+            else
+            {
+                item.Quantity++;
+            }
+
+            Cart = cart;
+
+            return Json(new
+            {
+                success = true,
+                cartCount = cart.Sum(c => c.Quantity),
+                itemName = dish.Name // Trả về tên món ăn để hiển thị trong thông báo
+            });
         }
+
+
+
+
         [HttpGet]
         public IActionResult GetCartItems()
         {
@@ -98,7 +125,7 @@ namespace SushiWebsite.Controllers
 
         // Đặt hàng và gửi thông báo qua Telegram
         [HttpPost]
-        public async Task<IActionResult> PlaceOrder(string firstName, string lastName, string phoneNumber, DateTime datetimePicker)
+        public async Task<IActionResult> PlaceOrder(string firstName, string lastName, string phoneNumber, DateTime datetimePicker, string note)
         {
             // Kiểm tra thông tin đầu vào
             if (!IsValidOrder(firstName, lastName, phoneNumber, datetimePicker, out string validationError))
@@ -108,7 +135,7 @@ namespace SushiWebsite.Controllers
             }
 
             // Tạo tin nhắn đặt hàng
-            string message = CreateOrderMessage(firstName, lastName, phoneNumber, datetimePicker, Cart);
+            string message = CreateOrderMessage(firstName, lastName, phoneNumber, datetimePicker, note, Cart);
 
             // Gửi tin nhắn qua Telegram
             await SendMessageToTelegram(message);
@@ -133,6 +160,7 @@ namespace SushiWebsite.Controllers
                 string.IsNullOrWhiteSpace(lastName) ||
                 string.IsNullOrWhiteSpace(phoneNumber) ||
                 datetimePicker == default)
+                  
             {
                 errorMessage = "Please enter complete information.";
                 return false;
@@ -149,7 +177,7 @@ namespace SushiWebsite.Controllers
         }
 
         // Tạo nội dung tin nhắn đặt hàng
-        private string CreateOrderMessage(string firstName, string lastName, string phoneNumber, DateTime datetimePicker, List<CartItem> cartItems)
+        private string CreateOrderMessage(string firstName, string lastName, string phoneNumber, DateTime datetimePicker, string note, List<CartItem> cartItems)
         {
             var orderDetails = cartItems.Select(item => $"- {item.Name}: {item.Quantity} x {item.Price:C}");
             return $@"
@@ -158,11 +186,12 @@ New Order Received:
 - Last Name: {lastName}
 - Phone Number: {phoneNumber}
 - Dining Date and Time: {datetimePicker:dd/MM/yyyy HH:mm}
-=======================================
+- NOTE: {note}
+=================================
 Order Details:
 {string.Join("\n", orderDetails)}
 
-=======================================
+=================================
 Total Amount: {cartItems.Sum(item => item.Quantity * item.Price):C}
             ";
         }

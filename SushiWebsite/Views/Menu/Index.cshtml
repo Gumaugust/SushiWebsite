@@ -3,39 +3,52 @@
 @{
     ViewData["Title"] = "Menu";
 }
+
 <style>
-    .category-arrow i {
-        color: white; /* Màu trắng cho mũi tên */
-        transition: transform 0.3s ease; /* Thêm hiệu ứng xoay khi mở/đóng category */
+    .toast-container {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1050;
     }
 
-    /* Khi mở (mũi tên lên) */
-    .category-title button.open .category-arrow i {
-        transform: rotate(180deg); /* Xoay mũi tên */
+    .toast {
+        min-width: 250px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        margin-top: 10px;
     }
-    /* Nút chính - Thêm vào giỏ */
+
+    .category-arrow i {
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .rotate-180 {
+        transform: rotate(180deg);
+    }
+
     .category-title button {
-        background-color: #FF7043; /* Màu cam tươi */
-        color: white; /* Chữ trắng */
+        background-color: #FF7043;
+        color: white;
         border-radius: 5px;
         padding: 10px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        text-decoration: none;
         border: none;
-        transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+        transition: background-color 0.3s ease;
     }
 
         .category-title button:hover {
-            background-color: #FF5722; /* Màu cam đậm hơn khi hover */
+            background-color: #FF5722;
         }
 
-
-    /* Nút phụ - Xem giỏ hàng */
     .btn-view-cart {
-        background-color: #4CAF50; /* Màu xanh lá cây */
+        background-color: #4CAF50;
         color: white;
         border-radius: 5px;
         padding: 10px 20px;
@@ -44,7 +57,7 @@
     }
 
         .btn-view-cart:hover {
-            background-color: #388E3C; /* Màu xanh lá cây đậm hơn khi hover */
+            background-color: #388E3C;
         }
 
     .collapse-content {
@@ -54,7 +67,6 @@
     .collapse-content-show {
         display: block;
     }
-
 </style>
 
 <h1 class="text-center my-4">Menu</h1>
@@ -68,7 +80,7 @@
     }
 </button>
 
-<!-- Modal để hiển thị giỏ hàng -->
+<!-- Modal hiển thị giỏ hàng -->
 <div id="cartModal" class="modal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -86,14 +98,12 @@
 @foreach (var category in Model)
 {
     <h3 class="category-title">
-        <button class="toggle-category" data-category="collapseCategory-@category.Key" >
+        <button class="toggle-category" data-category="collapseCategory-@category.Key">
             <span>@category.Key</span>
-            <span class="category-arrow"><i class="bi bi-caret-down-fill"></i></span> <!-- Dấu mũi tên -->
+            <span class="category-arrow"><i class="bi bi-caret-down-fill"></i></span>
         </button>
     </h3>
 
-
-    <!-- Đoạn code thu gọn category -->
     <div id="collapseCategory-@category.Key" class="collapse-content">
         <ul class="list-group mb-4">
             @foreach (var dish in category)
@@ -105,10 +115,25 @@
                         <small>@Html.Raw(dish.Description.Replace("\n", "<br>"))</small>
                     </div>
                     <div>
-                        <p class="mb-0"><strong>@dish.Price.ToString("C", new System.Globalization.CultureInfo("de-DE"))</strong></p>
-                        <form method="post" asp-action="AddToCart" class="mt-1">
+                        <form method="post" asp-action="AddToCart" class="add-to-cart-form mt-1">
                             <input type="hidden" name="id" value="@dish.Id" />
-                            <button type="submit" class="btn btn-sm btn-primary">Thêm</button>
+
+                            @if (dish.PriceOptions != null && dish.PriceOptions.Count > 0)
+                            {
+                                <select name="size" class="form-select mb-1">
+                                    @foreach (var option in dish.PriceOptions)
+                                    {
+                                        <option value="@option.Size">@option.Size - @option.Price.ToString("C", new System.Globalization.CultureInfo("de-DE"))</option>
+                                    }
+                                </select>
+                            }
+                            else
+                            {
+                                <input type="hidden" name="size" value="default" />
+                                <p class="mb-0"><strong>@dish.Price.ToString("C", new System.Globalization.CultureInfo("de-DE"))</strong></p>
+                            }
+
+                            <button type="submit" class="btn btn-sm btn-primary">Add</button>
                         </form>
                     </div>
                 </li>
@@ -121,60 +146,112 @@
 
 @section Scripts {
     <script>
-        // Tự động điều chỉnh giá trị của aria-expanded khi một button được click
-        document.querySelectorAll('.toggle-category').forEach(function (button) {
-            button.addEventListener('click', function () {
-                const categoryId = this.getAttribute('data-category');
-                const categoryContent = document.getElementById(categoryId);
-                const arrowIcon = this.querySelector('.category-arrow i'); // Lấy dấu mũi tên
+               document.addEventListener("DOMContentLoaded", function () {
+            // Toggle mở / đóng danh mục
+            document.querySelectorAll('.toggle-category').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const categoryId = this.getAttribute('data-category');
+                    const categoryContent = document.getElementById(categoryId);
+                    const arrowIcon = this.querySelector('.category-arrow i');
 
-                // Kiểm tra xem category đã mở hay chưa, nếu có thì đóng lại
-                if (categoryContent.classList.contains('collapse-content-show')) {
-                    categoryContent.classList.remove('collapse-content-show');
-                    arrowIcon.classList.remove('bi-chevron-up'); // Đổi mũi tên
-                    arrowIcon.classList.add('bi-chevron-down');  // Đổi lại mũi tên xuống
-                } else {
-                    // Nếu chưa mở, mở nó
-                    categoryContent.classList.add('collapse-content-show');
-                    arrowIcon.classList.remove('bi-chevron-down'); // Đổi mũi tên
-                    arrowIcon.classList.add('bi-chevron-up');      // Đổi thành mũi tên lên
-                }
+                    categoryContent.classList.toggle('collapse-content-show');
+                    arrowIcon.classList.toggle('rotate-180');
+                });
+            });
+
+            // AJAX thêm vào giỏ hàng
+            document.querySelectorAll(".add-to-cart-form").forEach(form => {
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    let formData = new FormData(this);
+                    fetch(this.action, {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Cập nhật badge giỏ hàng
+                            let cartBadge = document.querySelector("#viewCartBtn .badge");
+                            if (cartBadge) {
+                                cartBadge.textContent = data.cartCount;
+                            } else {
+                                let newBadge = document.createElement("span");
+                                newBadge.className = "badge bg-danger ms-2";
+                                newBadge.textContent = data.cartCount;
+                                document.querySelector("#viewCartBtn").appendChild(newBadge);
+                            }
+
+                            // Hiển thị thông báo đã thêm vào giỏ hàng
+                            showToast(`✅ Added "${data.itemName}" to your cart!`);
+                        } else {
+                            alert(data.message);
+                        }
+                    })
+                    .catch(error => console.error("Error adding to cart:", error));
+                });
+            });
+
+            // Xem giỏ hàng (dùng modal)
+            document.getElementById("viewCartBtn").addEventListener("click", function () {
+                fetch('/Menu/GetCartItems')
+                    .then(response => response.json())
+                    .then(data => {
+                        let content = '';
+
+                        if (data.length === 0) {
+                            content = '<p>Your Cart is Empty.</p>';
+                        } else {
+                            content += '<table class="table table-bordered">';
+                            content += '<thead><tr><th>Name</th><th>Price</th><th>Quantity</th><th>Total</th></tr></thead>';
+                            content += '<tbody>';
+
+                            data.forEach(item => {
+                                content += `
+                                            <tr>
+                                                <td>${item.name}</td>
+                                                <td>${item.price.toLocaleString()} €</td>
+                                                <td>${item.quantity}</td>
+                                                <td>${(item.price * item.quantity).toLocaleString()} €</td>
+                                            </tr>
+                                        `;
+                            });
+
+                            content += '</tbody></table>';
+                        }
+
+                        document.getElementById("cartContent").innerHTML = content;
+
+                        new bootstrap.Modal(document.getElementById("cartModal")).show();
+                    })
+                    .catch(error => console.error('Error Loading:', error));
             });
         });
 
-        document.getElementById("viewCartBtn").addEventListener("click", function () {
-            fetch('/Menu/GetCartItems') // Gửi yêu cầu đến action GetCartItems
-                .then(response => response.json()) // Nhận kết quả JSON
-                .then(data => {
-                    let content = '';
+        // Function to show a toast message
+        function showToast(message) {
+            const toastContainer = document.createElement('div');
+            toastContainer.classList.add('toast-container');
+            toastContainer.innerHTML = `
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-body">
+                        ${message}
+                    </div>
+                </div>
+            `;
 
-                    if (data.length === 0) {
-                        content = '<p>Your Cart is Empty.</p>';
-                    } else {
-                        content += '<table class="table table-bordered">';
-                        content += '<thead><tr><th>Name</th><th>Price</th><th>Quantity</th><th>Total</th></tr></thead>';
-                        content += '<tbody>';
+            document.body.appendChild(toastContainer);
 
-                        data.forEach(item => {
-                            content += `
-                                        <tr>
-                                            <td>${item.name}</td>
-                                            <td>${item.price.toLocaleString()} €</td>
-                                            <td>${item.quantity}</td>
-                                            <td>${(item.price * item.quantity).toLocaleString()} €</td>
-                                        </tr>
-                                    `;
-                        });
+            // Show the toast
+            const toast = toastContainer.querySelector('.toast');
+            new bootstrap.Toast(toast).show();
 
-                        content += '</tbody></table>';
-                    }
+            // Remove the toast after it disappears
+            toast.addEventListener('hidden.bs.toast', function () {
+                toastContainer.remove();
+            });
+        }
 
-                    document.getElementById("cartContent").innerHTML = content;
-
-                    // Hiển thị modal giỏ hàng
-                    new bootstrap.Modal(document.getElementById("cartModal")).show();
-                })
-                .catch(error => console.error('Error Loading:', error));
-        });
     </script>
 }

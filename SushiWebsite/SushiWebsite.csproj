@@ -18,4 +18,11 @@
     <None Include="Views\Menu\style.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Home\AboutUs.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
