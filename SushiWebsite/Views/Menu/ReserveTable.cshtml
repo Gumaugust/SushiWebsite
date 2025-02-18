@@ -16,8 +16,8 @@
                 <label for="phoneNumber" class="form-label">Phone Number</label>
                 <input type="tel" class="form-control" id="phoneNumber" name="PhoneNumber"
                        value="@Model?.PhoneNumber" required
-                       pattern="^\+49\d{10}|\d{10,11}$"
-                       title="Die Telefonnummer muss 10-11 Ziffern lang sein (oder +49 und 10 Ziffern)" />
+                       pattern="^\+49\d{10}|\d{10,15}$"
+                       title="Die Telefonnummer muss 10-15 Ziffern lang sein (oder +49 und 10 Ziffern)" />
                 @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -68,8 +68,24 @@
             <small class="form-text text-muted">Maximum 200 characters.</small>
         </div>
 
+        <!-- Checkbox xác nhận -->
+        <div class="form-check my-3 d-flex align-items-center gap-2">
+            <input type="checkbox" class="form-check-input" id="confirmCheckbox" style="width: 24px; height: 24px;">
+            <label class="form-check-label" for="confirmCheckbox">
+                Ich bestätige die Richtigkeit der oben genannten Angaben und bin mit der Aufgabe der Bestellung einverstanden.
+                <br>
+                <small class="text-info">ENG: I confirm that the above information is correct and agree to place an order.</small>
+            </label>
+        </div>
+
         <div class="text-center">
-            <button type="submit" class="btn btn-primary w-100">Reserve</button>
+            <button type="submit" class="btn btn-primary w-100" id="submitButton" disabled >Reserve</button>
         </div>
     </form>
 </div>
+
+<script>
+         document.getElementById('confirmCheckbox').addEventListener('change', function () {
+        document.getElementById('submitButton').disabled = !this.checked;
+    });
+</script>

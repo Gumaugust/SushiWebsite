@@ -26,7 +26,7 @@ namespace SushiWebsite.Controllers
         {
             return View();
         }
-        public IActionResult Aboutus()
+        public IActionResult AboutUs()
         {
             return View();
         }

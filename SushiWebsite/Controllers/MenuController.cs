@@ -243,6 +243,8 @@ Total Amount: {cartItems.Sum(item => item.Quantity * item.Price):C}
 
             string message = $@"
 New Table Reservation:
+- Name : {model.FullName}
+- Phone : {model.PhoneNumber}
 - Number of People: {model.NumberOfPeople}
 - Date and Time: {reservationDateTime:dd/MM/yyyy HH:mm}
 - Note: {model.Note ?? "None"}
