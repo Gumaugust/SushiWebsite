@@ -521,6 +521,588 @@
         "Description": "JINRO - 350ml",
         "ImageUrl": "/images/wine&beer.jpg",
         "Category": "Beer & Wine"
-    }
+    },
+    {
+        "Id": 54,
+        "Name": "S1. Mango Salat mit Garnelen / Mango Salad with Shrimp",
+        "Price": 10.90,
+        "Description": "Mit Karotten, Röstzwiebeln, Erdnüssen und Kräuter / With carrots, roasted onions, herbs and peanuts",
+        "ImageUrl": "/images/salad.jpg",
+        "Category": "SALATE / SALADS"
+    },
+    {
+        "Id": 55,
+        "Name": "S2. Krautsalat mit Hühnerfleisch / Cabbage Salad with Chicken",
+        "Price": 7.90,
+        "Description": "Mit Röstzwiebeln, Erdnüssen und Huhn / With roasted onions, peanuts and chicken",
+        "ImageUrl": "/images/salad.jpg",
+        "Category": "SALATE / SALADS"
+    },
+    {
+        "Id": 56,
+        "Name": "S1. Tom Kha Gai",
+        "Price": 7.90,
+        "Description": "Thailändische Suppe mit Hühnerfleisch, Kokosmilch und Champignons / Thai soup with chicken, coconut milk and mushrooms",
+        "ImageUrl": "/images/soup.jpg",
+        "Category": "SUPPEN / SOUPS"
+    },
+    {
+        "Id": 57,
+        "Name": "S2. Tom Yam Goong",
+        "Price": 7.90,
+        "Description": "Thailändische Suppe mit Garnelen, Kokosmilch und Champignons / Thai soup with shrimp, coconut milk and mushrooms",
+        "ImageUrl": "/images/soup.jpg",
+        "Category": "SUPPEN / SOUPS"
+    },
+    {
+        "Id": 58,
+        "Name": "S3. Miso Suppe / Miso Soup",
+        "Price": 5.90,
+        "Description": "Sojabohnensuppe mit Tofu und Seetang / Soybean soup with tofu and seaweed",
+        "ImageUrl": "/images/soup.jpg",
+        "Category": "SUPPEN / SOUPS"
+    },
+    {
+        "Id": 59,
+        "Name": "H1. Kok House Curry",
+        "PriceOptions": [
+            {
+                "Size": "Tofu",
+                "Price": 13.90
+            },
+            {
+                "Size": "Huhn",
+                "Price": 13.90
+            },
+            {
+                "Size": "Rind",
+                "Price": 15.90
+            },
+            {
+                "Size": "Ente",
+                "Price": 17.90
+            },
+            {
+                "Size": "Groß Garnele",
+                "Price": 19.90
+            }
+        ],
+        "Description": "Cremige Kokos-Curry Soße, Hokkaido-Kürbis, Süßkartoffel, Baby-Pak Choi, Basilikum, verschiedene Gemüsesorten mit Reis",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "HAUPTSPEISEN / MAINCOURSES"
+    },
+    {
+        "Id": 60,
+        "Name": "H2. Peanut Coco Dream",
+        "PriceOptions": [
+            {
+                "Size": "Tofu",
+                "Price": 13.90
+            },
+            {
+                "Size": "Huhn",
+                "Price": 13.90
+            },
+            {
+                "Size": "Rind",
+                "Price": 15.90
+            },
+            {
+                "Size": "Ente",
+                "Price": 17.90
+            },
+            {
+                "Size": "Groß Garnele",
+                "Price": 19.90
+            }
+        ],
+        "Description": "Cremige Kokos-Erdnuss Soße, Hokkaido-Kürbis, Süßkartoffel, Baby-Pak Choi, Basilikum, verschiedene Gemüsesorten mit Reis",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "HAUPTSPEISEN / MAINCOURSES"
+    },
+    {
+        "Id": 61,
+        "Name": "H3. Sweet Sour Mango",
+        "PriceOptions": [
+            {
+                "Size": "Tofu",
+                "Price": 13.90
+            },
+            {
+                "Size": "Tempura Huhn",
+                "Price": 13.90
+            },
+            {
+                "Size": "Rind",
+                "Price": 15.90
+            },
+            {
+                "Size": "Knusprige Ente",
+                "Price": 17.90
+            },
+            {
+                "Size": "6 St. Tempura Garnelen",
+                "Price": 21.90
+            }
+        ],
+        "Description": "Das Süße und die Säure von der Mango in Kombination mit frischem Gemüse",
+        "ImageUrl": "/images/sushi1.jpg",
+        "Category": "HAUPTSPEISEN / MAINCOURSES"
+    },
+    {
+        "Id": 62,
+        "Name": "N1. Mekong Nudeln / Bun Tron",
+        "PriceOptions": [
+            {
+                "Size": "Tofu",
+                "Price": 13.90
+            },
+            {
+                "Size": "Huhn",
+                "Price": 13.90
+            },
+            {
+                "Size": "Rind",
+                "Price": 15.90
+            },
+            {
+                "Size": "Ente",
+                "Price": 17.90
+            },
+            {
+                "Size": "Große Garnelen",
+                "Price": 19.90
+            }
+        ],
+        "Description": "Reisnudeln, Eisbergsalat, Kräuter, hausgemachte Fischsoße, verfeinert mit gerösteten Zwiebeln und Erdnüssen.",
+        "ImageUrl": "images/pasta.jpg",
+        "Category": "NUDELN / NOODLES"
+    },
+    {
+        "Id": 63,
+        "Name": "N2. Gebratene Udon Nudeln / Stir Fry Udon Noodles",
+        "PriceOptions": [
+            {
+                "Size": "Tofu",
+                "Price": 13.90
+            },
+            {
+                "Size": "Huhn",
+                "Price": 13.90
+            },
+            {
+                "Size": "Rind",
+                "Price": 15.90
+            },
+            {
+                "Size": "Ente",
+                "Price": 17.90
+            },
+            {
+                "Size": "Große Garnelen",
+                "Price": 19.90
+            }
+        ],
+        "Description": "Udon-Nudeln gebraten mit frischem Gemüse.",
+        "ImageUrl": "images/pasta.jpg",
+        "Category": "NUDELN / NOODLES"
+    },
+    {
+        "Id": 64,
+        "Name": "N3. Gebratene Ramen Nudeln",
+        "PriceOptions": [
+            {
+                "Size": "Tofu",
+                "Price": 13.90
+            },
+            {
+                "Size": "Huhn",
+                "Price": 13.90
+            },
+            {
+                "Size": "Rind",
+                "Price": 15.90
+            },
+            {
+                "Size": "Ente",
+                "Price": 17.90
+            },
+            {
+                "Size": "Große Garnelen",
+                "Price": 19.90
+            }
+        ],
+        "Description": "Frisch gekochte Ramen, gebraten mit frischem saisonalem Gemüse.",
+        "ImageUrl": "images/pasta.jpg",
+        "Category": "NUDELN / NOODLES"
+    },
+    {
+        "Id": 65,
+        "Name": "1 Portion Reis / 1 Portion of Rice",
+        "Price": 2.20,
+        "Description": "Eine Portion duftender Reis.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "BEILAGEN / EXTRAS"
+    },
+    {
+        "Id": 66,
+        "Name": "1 Portion Sushi-Reis / 1 Portion of Sushi Rice",
+        "Price": 3.00,
+        "Description": "Eine Portion Sushi-Reis mit perfekter Konsistenz.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "BEILAGEN / EXTRAS"
+    },
+    {
+        "Id": 67,
+        "Name": "1 Portion Reisnudeln / 1 Portion of Rice Noodles",
+        "Price": 3.00,
+        "Description": "Feine, weiche Reisnudeln als Beilage.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "BEILAGEN / EXTRAS"
+    },
+    {
+        "Id": 68,
+        "Name": "1 Extra Soße / 1 Extra Sauce",
+        "Price": 2.00,
+        "Description": "Zusätzliche Soße für den perfekten Geschmack.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "BEILAGEN / EXTRAS"
+    },
+    {
+        "Id": 69,
+        "Name": "1 Portion Seetang-Salat / 1 Portion of Seaweed Salad",
+        "Price": 3.50,
+        "Description": "Frischer, mariniert Seetang-Salat.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "BEILAGEN / EXTRAS"
+    },
+    {
+        "Id": 70,
+        "Name": "D1. Mochi (Verschiedene Sorten je nach Season)",
+        "Price": 6.90,
+        "Description": "Süße japanische Reiskuchen aus Klebreis, erhältlich in verschiedenen Sorten.",
+        "ImageUrl": "images/dessert.jpg",
+        "Category": "DESSERT"
+    },
+    {
+        "Id": 71,
+        "Name": "D2. Matcha Eis / Sesam Eis",
+        "Price": 6.90,
+        "Description": "Cremiges, exotisches Eis mit Matcha oder Sesamgeschmack.",
+        "ImageUrl": "images/dessert.jpg",
+        "Category": "DESSERT"
+    },
+    {
+        "Id": 72,
+        "Name": "D3. Gebackene Bananen im Teigmantel",
+        "Price": 6.90,
+        "Description": "Dessert mit Honig und Sesam, knusprig gebacken.",
+        "ImageUrl": "images/dessert.jpg",
+        "Category": "DESSERT"
+    },
+    {
+        "Id": 73,
+        "Name": "D4. Klebereis mit Kokosmilchsaft",
+        "Price": 6.90,
+        "Description": "Klebereis mit süßer Kokosmilch und gerösteten Erdnüssen.",
+        "ImageUrl": "images/dessert.jpg",
+        "Category": "DESSERT"
+    },
 
+    {
+        "Id": 74,
+        "Name": "N1. Avocado Nigiri",
+        "Price": 4.50,
+        "Description": "Frisches Avocado Nigiri.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 75,
+        "Name": "N2. Sake Nigiri",
+        "Price": 5.20,
+        "Description": "Lachs / Salmon Nigiri.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 76,
+        "Name": "N3. Maguro Nigiri",
+        "Price": 5.50,
+        "Description": "Thunfisch / Tuna Nigiri.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 77,
+        "Name": "N4. Surimi Nigiri",
+        "Price": 4.50,
+        "Description": "Krebsfleisch / Crab Meat Nigiri.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 78,
+        "Name": "M1. Avocado Maki",
+        "Price": 5.00,
+        "Description": "Avocado Maki Roll.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 79,
+        "Name": "M2. Kappa Maki",
+        "Price": 5.00,
+        "Description": "Gurke / Cucumber Maki Roll.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 80,
+        "Name": "M3. Sake Maki",
+        "Price": 5.20,
+        "Description": "Lachs / Salmon Maki Roll.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 81,
+        "Name": "M4. Sake-Avo Maki",
+        "Price": 6.00,
+        "Description": "Lachs & Avocado / Salmon & Avocado Maki Roll.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 82,
+        "Name": "M5. Tekka Maki",
+        "Price": 5.50,
+        "Description": "Thunfisch / Tuna Maki Roll.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 83,
+        "Name": "M6. Tekka-Avo Maki",
+        "Price": 6.50,
+        "Description": "Thunfisch & Avocado / Tuna & Avocado Maki Roll.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 84,
+        "Name": "M7. Ebi Tempura Maki",
+        "Price": 6.00,
+        "Description": "Tempura Garnelen / Tempura Shrimps Maki Roll.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 85,
+        "Name": "M8. Ebi Tempura-Avo Maki",
+        "Price": 7.00,
+        "Description": "Tempura Garnelen & Avocado / Tempura Shrimps & Avocado Maki Roll.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 86,
+        "Name": "M9. Knusprige Lachshaut Maki",
+        "Price": 5.50,
+        "Description": "Frittierte Lachshaut / Deep-Fried Salmon Skin Maki Roll.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 87,
+        "Name": "I1. Sakecado Roll",
+        "Price": 10.50,
+        "Description": "Lachs, Avocado und Tokio (Kaviar) / Salmon, avocado and fish roe (caviar).",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 88,
+        "Name": "I2. Tunacado Roll",
+        "Price": 11.50,
+        "Description": "Thunfisch, Avocado und Tokio (Kaviar) / Tuna, avocado and fish roe (caviar).",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 89,
+        "Name": "I3. Ebi Tempura Roll",
+        "Price": 11.00,
+        "Description": "Tempura Garnelen, Avocado und Sesame / Tempura prawns, avocado and sesame.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 90,
+        "Name": "I4. California Roll",
+        "Price": 9.50,
+        "Description": "Surimi, Avocado und Tobiko (Kaviar) / Surimi, avocado and fish roe (caviar).",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 91,
+        "Name": "I5. Unacado Roll",
+        "Price": 11.50,
+        "Description": "Salzwasseraal, Gurke und Sesame / Sea eel, cucumber and sesame.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 92,
+        "Name": "I6. Salmon Skin Roll",
+        "Price": 10.50,
+        "Description": "Frittierte Lachshaut, Gurke und Sesame / Deep-fried salmon skin, cucumber and sesame.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 93,
+        "Name": "I7. Veggie Roll",
+        "Price": 9.50,
+        "Description": "Tempura Avocado mit Gurke, Mango und Sesame / Tempura avocado with cucumber, mango and sesame.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 94,
+        "Name": "H1. Flamingo Roll",
+        "Price": 14.50,
+        "Description": "Tempura Garnelen, Mango, Avocado, Frischkäse, bedeckt mit Feuerlachs / Tempura prawns, mango, avocado, cream cheese, covered with flambéed salmon skin.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 95,
+        "Name": "H2. Rainbow Roll",
+        "Price": 13.90,
+        "Description": "Tempura Avocado, Mango, Gurke, Frischkäse im Lachsmantel / Tempura avocado, mango, cucumber, cream cheese, covered with salmon.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 96,
+        "Name": "H3. Sleepy Monster Roll",
+        "Price": 14.50,
+        "Description": "Gegrillte Lachshaut, Mango, Avocado, Frischkäse mit Großgarnelen umwickelt und Tobiko (Kaviar) / Grilled salmon skin, mango, avocado, cream cheese, wrapped in prawns and tobiko (caviar).",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 97,
+        "Name": "H4. Flame Tuna Roll",
+        "Price": 14.50,
+        "Description": "Surimi, Mango, Frischkäse ummantelt mit flambiertem Thunfisch / Surimi, mango, cream cheese, wrapped with flambéed tuna.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 98,
+        "Name": "H5. Futomaki Roll",
+        "Price": 14.50,
+        "Description": "8 Stk. Maki gefüllt mit Lachs, Thunfisch, Mango, Avocado, Gurke und Tobiko (Kaviar) / 8 pieces maki filled with salmon, tuna, mango, avocado, cucumber and tobiko (caviar).",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 99,
+        "Name": "H6. Kok Style Roll",
+        "Price": 14.50,
+        "Description": "8 über mit Lachs, Thunfisch, Mango, Avocado, Gurke und Tobiko (Kaviar) / 8 pieces maki filled with salmon, tuna, mango, avocado, cucumber and tobiko (caviar).",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 100,
+        "Name": "T51. Vegi Tempura Roll",
+        "Price": 11.50,
+        "Description": "Avocado, Gurke und Spargel / Avocado, cucumber and asparagus.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 101,
+        "Name": "T52. Tuna Tempura Roll",
+        "Price": 14.50,
+        "Description": "Thunfisch, Avocado und Frischkäse / Tuna, avocado and cream cheese.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 102,
+        "Name": "T53. Sake Tempura Roll",
+        "Price": 13.50,
+        "Description": "Lachs, Avocado und Frischkäse / Salmon, avocado and cream cheese.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 103,
+        "Name": "T54. Ebi Crunchy Tempura Roll",
+        "Price": 14.00,
+        "Description": "Garnelen, Gurke und Frischkäse / Shrimps, cucumber and cream cheese.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 104,
+        "Name": "Just Maki",
+        "Price": 12.50,
+        "Description": "8 Stk. Sake Maki, 8 Stk. Tuna Maki, 8 Stk. Avocado Maki.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 105,
+        "Name": "Sake Power",
+        "Price": 16.50,
+        "Description": "8 Stk. Sake Maki, 4 Stk. Sake Nigiri, 2 Stk. Sake Sashimi.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 106,
+        "Name": "Brave Night",
+        "Price": 20.00,
+        "Description": "8 Stk. Sake Tempura Roll, 2 Stk. Sake Nigiri, 8 Stk. Tuna Maki.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 107,
+        "Name": "Kok Royalty",
+        "Price": 20.50,
+        "Description": "8 Stk. Flamingo Roll, 2 Stk. Sake Nigiri, 2 Stk. Ebi Nigiri.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 108,
+        "Name": "Black Forest (Vegi)",
+        "Price": 33.00,
+        "Description": "8 Stk. Vegi Tempura Roll, 8 Stk. Vegi Inside Out, 8 Stk. Avocado Maki, 2 Stk. Avocado Nigiri, 2 Stk. Gurke Nigiri, Seetang Salat.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 109,
+        "Name": "Eternal Love (2 Per.)",
+        "Price": 39.90,
+        "Description": "8 Stk. Special Roll, 8 Stk. Sake Tempura Roll, 8 Stk. Kappa Maki, 2 Stk. Lachs Nigiri, 2 Stk. Thunfisch Nigiri, Seetang Salat.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    },
+    {
+        "Id": 110,
+        "Name": "Mighty Rocky (3 Per.)",
+        "Price": 57.90,
+        "Description": "8 Stk. Special Roll, 8 Stk. Tuna Tempura Roll, 8 Stk. Sakecado Inside-Out, 8 Stk. Kappa Maki, 8 Stk. Sake Maki, 6 Stk. Nigiri, Seetang Salat.",
+        "ImageUrl": "images/sushi1.jpg",
+        "Category": "SUSHI"
+    }
 ]

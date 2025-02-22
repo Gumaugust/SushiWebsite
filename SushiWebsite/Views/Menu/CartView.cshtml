@@ -34,7 +34,7 @@ else
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.Name</td>
+                        <td>@item.Name [ @item.Size ]</td>
                         <td>@(item.Price.ToString("C"))</td>
                         <td>@item.Quantity</td>
                         <td>@((item.Quantity * item.Price).ToString("C", new System.Globalization.CultureInfo("de-DE")))</td>
@@ -176,6 +176,8 @@ else
     </style>
     <!-- Flatpickr Script -->
     <script>
+               
+
              document.getElementById('confirmCheckbox').addEventListener('change', function () {
             document.getElementById('submitButton').disabled = !this.checked;
         });

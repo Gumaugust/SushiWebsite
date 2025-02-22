@@ -5,6 +5,19 @@
 }
 
 <style>
+    .btn-success {
+        font-size: 1.25rem; /* Làm chữ to hơn */
+        padding: 10px 10px; /* Tăng kích thước nút */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px; /* Khoảng cách giữa icon và chữ */
+    }
+
+        .btn-success:hover {
+            background-color: #388E3C !important; /* Màu xanh đậm hơn khi hover */
+        }
+
     .toast-container {
         position: fixed;
         bottom: 20px;
@@ -142,11 +155,21 @@
     </div>
 }
 
-<a asp-action="CartView" class="btn btn-success btn-sm mt-3 mb-5">Go to Your Cart!</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-4">
+            <a asp-action="CartView" class="btn btn-success btn-lg fw-bold py-3 px-4 rounded-pill w-100 d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-cart-fill fs-3"></i> Go to Your Cart!
+            </a>
+        </div>
+    </div>
+</div>
+
+
 
 @section Scripts {
     <script>
-               document.addEventListener("DOMContentLoaded", function () {
+                  document.addEventListener("DOMContentLoaded", function () {
             // Toggle mở / đóng danh mục
             document.querySelectorAll('.toggle-category').forEach(function (button) {
                 button.addEventListener('click', function () {
@@ -222,36 +245,62 @@
                         }
 
                         document.getElementById("cartContent").innerHTML = content;
-
                         new bootstrap.Modal(document.getElementById("cartModal")).show();
                     })
                     .catch(error => console.error('Error Loading:', error));
             });
-        });
 
-        // Function to show a toast message
-        function showToast(message) {
-            const toastContainer = document.createElement('div');
-            toastContainer.classList.add('toast-container');
-            toastContainer.innerHTML = `
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-body">
-                        ${message}
+            // Function to show a toast message
+            function showToast(message) {
+                const toastContainer = document.createElement('div');
+                toastContainer.classList.add('toast-container');
+                toastContainer.innerHTML = `
+                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-body">
+                            ${message}
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
 
-            document.body.appendChild(toastContainer);
+                document.body.appendChild(toastContainer);
 
-            // Show the toast
-            const toast = toastContainer.querySelector('.toast');
-            new bootstrap.Toast(toast).show();
+                // Show the toast
+                const toast = toastContainer.querySelector('.toast');
+                new bootstrap.Toast(toast).show();
 
-            // Remove the toast after it disappears
-            toast.addEventListener('hidden.bs.toast', function () {
-                toastContainer.remove();
+                // Remove the toast after it disappears
+                toast.addEventListener('hidden.bs.toast', function () {
+                    toastContainer.remove();
+                });
+            }
+
+            // Xử lý dropdown bị tràn ra ngoài
+            document.querySelectorAll(".dropdown").forEach(dropdown => {
+                dropdown.addEventListener("show.bs.dropdown", function (event) {
+                    let menu = this.querySelector(".dropdown-menu"); // Lấy dropdown-menu
+                    let rect = menu.getBoundingClientRect();
+                    let windowWidth = window.innerWidth;
+                    let windowHeight = window.innerHeight;
+
+                    // Kiểm tra nếu dropdown bị tràn ra ngoài bên phải
+                    if (rect.right > windowWidth) {
+                        menu.style.left = "auto";
+                        menu.style.right = "0"; // Đẩy dropdown về bên trái
+                    } else {
+                        menu.style.left = "";
+                        menu.style.right = ""; // Đặt lại giá trị mặc định
+                    }
+
+                    // Kiểm tra nếu dropdown bị tràn ra ngoài bên dưới
+                    if (rect.bottom > windowHeight) {
+                        menu.classList.add("dropup"); // Bootstrap hỗ trợ dropup
+                    } else {
+                        menu.classList.remove("dropup");
+                    }
+                });
             });
-        }
+
+        });
 
     </script>
 }

@@ -1,10 +1,16 @@
 ﻿@model List<SushiWebsite.Models.CartItem>
 
 @{
-    ViewData["Title"] = "Order Confirmation";
+    ViewData["Title"] = "Bestellbestätigung";
 }
 
-<h1>Order Confirmation</h1>
+<h1>Bestellbestätigung</h1>
 <p>@ViewBag.Message</p>
 
-<a href="@Url.Action("Index", "Menu")" class="btn btn-primary">Back to Menu</a>
+<p><strong>Wichtige Hinweise:</strong></p>
+<ul>
+    <li>Bitte kommen Sie pünktlich zur vereinbarten Zeit, um Ihre Bestellung abzuholen.</li>
+    <li>Wir werden Sie in Kürze anrufen, um Ihre Bestellung zu bestätigen.</li>
+</ul>
+
+<a href="@Url.Action("Index", "Menu")" class="btn btn-primary">Zur Speisekarte</a>

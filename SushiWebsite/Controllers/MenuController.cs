@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SushiWebsite.Models;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -179,7 +180,9 @@ namespace SushiWebsite.Controllers
         // Tạo nội dung tin nhắn đặt hàng
         private string CreateOrderMessage(string firstName, string lastName, string phoneNumber, DateTime datetimePicker, string note, List<CartItem> cartItems)
         {
-            var orderDetails = cartItems.Select(item => $"- {item.Name}: {item.Quantity} x {item.Price:C}");
+            var culture = CultureInfo.GetCultureInfo("de-DE");
+            var orderDetails = cartItems.Select(item => $"- {item.Name}  {item.Size}  : {item.Quantity} x {item.Price.ToString("C", culture)}");
+
             return $@"
 New Order Received:
 - First Name: {firstName}
@@ -192,9 +195,11 @@ Order Details:
 {string.Join("\n", orderDetails)}
 
 =================================
-Total Amount: {cartItems.Sum(item => item.Quantity * item.Price):C}
+Total Amount: {cartItems.Sum(item => item.Quantity * item.Price).ToString("C", culture)}
             ";
         }
+
+
         // Gửi thông báo qua Telegram
         private async Task SendMessageToTelegram(string message)
         {
